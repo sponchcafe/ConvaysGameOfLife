@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.params=population
-comment0.target=boolean[][]\ nextGeneration(boolean[][])
-comment1.params=population\ i\ j
-comment1.target=int\ getNeighbours(boolean[][],\ int,\ int)
-comment2.params=population\ i\ j
-comment2.target=boolean\ isAlive(boolean[][],\ int,\ int)
-comment2.text=\n\ \ \ \ //\ Game\ rules\ for\ a\ border\ of\ always\ dead\ cells\ around\ the\ game\ board\n\ \ \ \ private\ static\ boolean\ isAlive(boolean[][]\ population,\ int\ i,\ int\ j){\n\ \ \ \ \ \ \ \ if\ (i<0\ ||\ j<0\ ||\ i>\=population.length\ ||\ j>\=population[0].length)\ return\ false;\n\ \ \ \ \ \ \ \ else\ return\ population[i][j];\n\ \ \ \ }\n
-numComments=3
