@@ -14,13 +14,13 @@ import java.awt.Color;
 class ConvaysMain{
     
     // SETTINGS (RECOMENDED FOR SMALL SCREENS)
-    private static final int LINES = 175;    // Numbrt of lines on the board (50)
-    private static final int COLUMNS = 300;  // Number of columns on the board (75)
-    private static final int SIZE = 3;     // Size of a single square cell in px (12)
+    private static final int LINES = 50;    // Numbrt of lines on the board (50)
+    private static final int COLUMNS = 75;  // Number of columns on the board (75)
+    private static final int SIZE = 12;     // Size of a single square cell in px (12)
     private static final int SPACING = 1;   // Spacing between individual cells in px (1)
     private static final int BORDER = 5;    // Border around the board in px (5)
     private static final double DENSITY = 0.1;      // Population density for random fill (0.1)
-    private static final boolean CIRCLES = false;    // Use circles for living cells (false defaults to full squares) (true)
+    private static final boolean CIRCLES = true;    // Use circles for living cells (false defaults to full squares) (true)
     private static final Color BACKGROUND = new Color(0,20,0);     // 8-bit RGB color for background (0,20,0)
     private static final Color ALIVE_COLOR = new Color(80,200,80);  // 8-bit RGB color for living cells (80,200,80)
     private static final Color DEAD_COLOR = new Color(10,30,10);    // 8-bit RGB color for dead cells (10,30,10)
