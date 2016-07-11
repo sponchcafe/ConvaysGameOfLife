@@ -1,0 +1,4 @@
+*.class
+*.jar
+*.bluej
+.DS_Store
