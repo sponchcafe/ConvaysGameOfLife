@@ -11,7 +11,7 @@ import java.awt.GridBagLayout;
 import java.awt.Panel;
 import java.awt.Color;
 
-class ConvaysMain{
+class Main{
     
     // SETTINGS (RECOMENDED FOR SMALL SCREENS)
     private static final int LINES = 50;    // Numbrt of lines on the board (50)
@@ -25,7 +25,7 @@ class ConvaysMain{
     private static final Color ALIVE_COLOR = new Color(80,200,80);  // 8-bit RGB color for living cells (80,200,80)
     private static final Color DEAD_COLOR = new Color(10,30,10);    // 8-bit RGB color for dead cells (10,30,10)
     
-    private static ConvaysGameBoard gameBoard;
+    private static GameBoard gameBoard;
     
     // GUI
     private static JButton b_Go;
@@ -41,10 +41,10 @@ class ConvaysMain{
     public static void main(String[] args){
        
        // init gameboard
-       gameBoard = new ConvaysGameBoard(LINES,COLUMNS);
+       gameBoard = new GameBoard(LINES,COLUMNS);
        gameBoard.setDimensions(SIZE, SPACING, BORDER);
        gameBoard.setAppearance(BACKGROUND, ALIVE_COLOR, DEAD_COLOR, CIRCLES);
-       gameBoard.setPattern(ConvaysUtils.GLIDER_CANNON);
+       gameBoard.setPattern(Utils.GLIDER_CANNON);
        
        // setup option pane
        JPanel controlPane = new JPanel();
@@ -84,7 +84,7 @@ class ConvaysMain{
        b_Random.addActionListener(ae -> 
        {
            gameBoard.setPatternMode(false);
-           gameBoard.setData(ConvaysUtils.getRandomPopulation(gameBoard.getData(), DENSITY));
+           gameBoard.setData(Utils.getRandomPopulation(gameBoard.getData(), DENSITY));
            gameBoard.repaint();
        }
        );
@@ -112,7 +112,7 @@ class ConvaysMain{
        {   
            // save old board and set Pattern
            gameBoard.backup();
-           gameBoard.setPattern(ConvaysUtils.GLIDER_CANNON);
+           gameBoard.setPattern(Utils.GLIDER_CANNON);
            b_Cannon.setText("done");
            if(gameBoard.getPatternMode()){
                b_Cannon.setText("glider cannon");

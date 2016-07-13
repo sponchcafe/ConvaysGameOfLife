@@ -1,6 +1,6 @@
-public class ConvaysGameRules
+public class GameRules
 {
-    // Compute one gamestep of Convay's game of life: 
+    // Compute one gamestep of Conway's game of life: 
     // The initial population is altered according to the rules of the game
     public static boolean[][] nextGeneration(boolean[][] population){
         boolean[][] next = new boolean[population.length][population[0].length];

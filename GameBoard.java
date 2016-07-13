@@ -6,7 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import java.awt.MouseInfo;
 
-class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListener{
+class GameBoard extends JPanel implements MouseListener, MouseMotionListener{
     
     private boolean circles = false;
     private boolean[][] population;
@@ -15,7 +15,7 @@ class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListe
     private int spacing = 1;
     private int border = 5;
     private int fps = 1;
-    private ConvaysPattern pattern;
+    private Pattern pattern;
     private Color background = Color.LIGHT_GRAY;
     private Color aliveColor = Color.BLACK;
     private Color deadColor = Color.WHITE;
@@ -24,11 +24,11 @@ class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListe
     private boolean patternMode = false;
     
     // constructor
-    public ConvaysGameBoard(boolean[][] population){
-        new ConvaysGameBoard(population.length, population[0].length);
+    public GameBoard(boolean[][] population){
+        new GameBoard(population.length, population[0].length);
     }
     
-    public ConvaysGameBoard(int lines, int columns){
+    public GameBoard(int lines, int columns){
         this.population = new boolean[lines][columns];
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
@@ -39,11 +39,11 @@ class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListe
     public int getColumns() { return this.population[0].length; }
     public void setData(boolean[][] population) { 
         this.population = population; }  
-    public void setPattern(ConvaysPattern pattern) { this.pattern = pattern; }
+    public void setPattern(Pattern pattern) { this.pattern = pattern; }
     public boolean[][] getData(){ return this.population; }
     public int getDisplayWidth(){ return this.population[0].length*(this.size+this.spacing)+2*this.border; }
     public int getDisplayHeight(){ return this.population.length*(this.size+this.spacing)+2*this.border; }
-    public ConvaysPattern getPattern() { return this.pattern; }
+    public Pattern getPattern() { return this.pattern; }
     public void setFPS (int fps) { this.fps = fps; }
     public boolean getPatternMode (){ return this.patternMode; }
     public void setPatternMode (boolean mode){ this.patternMode = mode; }
@@ -85,9 +85,9 @@ class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListe
     }
     
     private void addPattern(int line, int column){
-        ConvaysPattern clearBox = new ConvaysPattern(this.pattern.getLines(), this.pattern.getColumns());
-        this.setData(ConvaysUtils.addPattern(ConvaysUtils.copyPopulation(this.backupPopulation), clearBox, line-pattern.getLines()/2, column-clearBox.getColumns()/2));
-        this.setData(ConvaysUtils.addPattern(this.population, this.pattern, line-pattern.getLines()/2, column-this.pattern.getColumns()/2));
+        Pattern clearBox = new Pattern(this.pattern.getLines(), this.pattern.getColumns());
+        this.setData(Utils.addPattern(Utils.copyPopulation(this.backupPopulation), clearBox, line-pattern.getLines()/2, column-clearBox.getColumns()/2));
+        this.setData(Utils.addPattern(this.population, this.pattern, line-pattern.getLines()/2, column-this.pattern.getColumns()/2));
         this.repaint();
     }
     
@@ -96,7 +96,7 @@ class ConvaysGameBoard extends JPanel implements MouseListener, MouseMotionListe
     }
     
     public void tick(){
-        this.setData(ConvaysGameRules.nextGeneration(this.getData()));
+        this.setData(GameRules.nextGeneration(this.getData()));
         this.repaint();
     }
     

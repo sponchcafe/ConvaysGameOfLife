@@ -1,16 +1,16 @@
-public class ConvaysPattern{
+public class Pattern{
 
     private int[] strips = {};
     private int lines;
     private int columns;
     private boolean start = false;
     
-    public ConvaysPattern(int lines, int columns){
+    public Pattern(int lines, int columns){
         this.lines = lines;
         this.columns = columns;
     }
        
-    public ConvaysPattern(int lines, int columns, int[] strips, boolean start, boolean transposed){
+    public Pattern(int lines, int columns, int[] strips, boolean start, boolean transposed){
         this.strips = strips;
         this.start = start;
         this.lines = lines;

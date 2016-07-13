@@ -1,9 +1,9 @@
 import java.util.Random;
 
-public class ConvaysUtils
+public class Utils
 {
     private static final int[] GLIDER_CANNON_STRIPS = {24,1,33,1,1,1,23,2,6,2,12,2,11,1,3,1,4,2,12,4,8,1,5,1,3,2,14,2,8,1,3,1,1,2,4,1,1,1,21,1,5,1,7,1,22,1,3,1,32,2,22};
-    public static final ConvaysPattern GLIDER_CANNON = new ConvaysPattern(9,36,GLIDER_CANNON_STRIPS,false, true);
+    public static final Pattern GLIDER_CANNON = new Pattern(9,36,GLIDER_CANNON_STRIPS,false, true);
     // console printout of a population matrix
     public static void printField(boolean[][] population){   
         System.out.printf("+");
@@ -35,7 +35,7 @@ public class ConvaysUtils
         return population;
     }
     
-    public static boolean[][] addPattern(boolean[][] population, ConvaysPattern pattern, int line, int column){
+    public static boolean[][] addPattern(boolean[][] population, Pattern pattern, int line, int column){
         // check if pattern fits into population
         if(line<0 || column<0 || population.length<line+pattern.getLines() || population[0].length<column+pattern.getColumns()) return population;
         
